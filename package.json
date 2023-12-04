@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "vitest"
+    "test": "vitest  --coverage",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@nativescript/core": "~8.6.1",
@@ -17,6 +18,7 @@
     "@nativescript/webpack": "~5.0.0",
     "@types/node": "^18.19.1",
     "@vitejs/plugin-vue": "^4.5.1",
+    "@vitest/coverage-v8": "^0.34.6",
     "@vue/test-utils": "^2.4.3",
     "jsdom": "^23.0.1",
     "tailwindcss": "^3.1.8",

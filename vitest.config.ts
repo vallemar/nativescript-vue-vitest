@@ -1,6 +1,6 @@
 import Vue from '@vitejs/plugin-vue';
 import path from 'path';
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 import { NSMockViews } from "./test/NSMockViews";
 
 export default defineConfig({
@@ -23,8 +23,15 @@ export default defineConfig({
     test: {
         globals: true,
         name: 'jsdom',
-        root: './test',
         environment: 'jsdom',
-        setupFiles: ['./setup.ts'],
+        setupFiles: ['test/setup.ts'],
+        coverage: {
+            provider: 'v8',
+            reporter: ['text', 'json', 'html'],
+            include: ["src/**"],
+            exclude: [...configDefaults.exclude, '**/test/**'],
+            reportsDirectory: "test/coverage",
+            all: false
+        },
     },
 })
